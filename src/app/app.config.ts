@@ -3,16 +3,22 @@ import { provideRouter, withComponentInputBinding, withViewTransitions } from '@
 
 import { provideHttpClient } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideEffects } from '@ngrx/effects';
+import { provideStore } from '@ngrx/store';
 import { routes } from './app.routes';
+import { appEffects, appStore } from './stores/store';
+import { ToDoService } from './stores/todo.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(
-      routes,
+    provideRouter(routes,
       withViewTransitions(),
-      withComponentInputBinding()
+      withComponentInputBinding(),
     ),
     provideClientHydration(),
-    provideHttpClient()
+    provideHttpClient(),
+    provideStore(appStore),
+    provideEffects(appEffects),
+    ToDoService,
   ]
 };

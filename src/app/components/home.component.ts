@@ -35,6 +35,7 @@ export class HomeComponent {
     { path: 'new-input-output', name: 'new input output' },
     { path: 'model-2-way-binding', name: 'model 2 way binding' },
     { path: 'view-child-query', name: 'view child query' },
+    { path: 'store', name: 'ngrx store' },
   ]
 
 }
